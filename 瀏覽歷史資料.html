@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+	Design by TEMPLATED
+	http://templated.co
+	Released for free under the Creative Commons Attribution License
+	Name       : Eponymous
+	Version    : 1.0
+	Released   : 20130222
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>MIS 2019</title>
+        <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+        <link href="模板/style.css" rel="stylesheet" type="text/css" />
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+            <script>
+var lineChartData = {
+    labels: ["3", "6", "9", "12", "15", "18", "21", "24"], //顯示區間名稱
+    datasets: [{
+        label: '攝影機A', // tootip 出現的名稱
+        lineTension: 0, // 曲線的彎度，設0 表示直線
+        backgroundColor: "#ea464d",
+        borderColor: "#ea464d",
+        borderWidth: 5,
+        data: [10, 12, 15, 18, 22, 33, 25, 16, 5], // 資料
+        fill: false, // 是否填滿色彩
+    }, {
+        label: '攝影機B',
+        lineTension: 0,
+        fill: false,
+        backgroundColor: "#29b288",
+        borderColor: "#29b288",
+        borderWidth: 5,
+        data: [2, 7, 18, 20, 34, 48, 24, 8, 2],
+    },]
+};
+    
+function drawLineCanvas(ctx,data) {
+    window.myLine = new Chart(ctx, {  //先建立一個 chart
+        type: 'line', // 型態
+        data: data,
+        options: {
+                responsive: true,
+                legend: { //是否要顯示圖示
+                    display: true,
+                },
+                tooltips: { //是否要顯示 tooltip
+                    enabled: true
+                },
+                scales: {  //是否要顯示 x、y 軸
+                    xAxes: [{
+                        display: true
+                    }],
+                    yAxes: [{
+                        display: true
+                    }]
+                },
+            }
+    });
+};
+    window.onload = function () {
+    var ctx = document.getElementById("canvas").getContext("2d");
+    drawLineCanvas(ctx,lineChartData);
+};
+</script>
+<style type="text/css">
+      canvas { border: 1px solid black; }
+</style>
+    </head>
+    <body>
+		<div id="bg">
+			<div id="outer">
+				<div id="header">
+					<div id="logo">
+						<h1>
+							<a href="%E9%A6%96%E9%A0%81.html">人流 ‧ 留人</a>
+						</h1>
+					</div>
+					<div id="nav">
+						<ul>
+							<li class="first active">
+								<a href="#">瀏覽歷史資料</a>
+							</li>
+							<li>
+								<a href="%E4%B8%8A%E5%82%B3%E5%BD%B1%E7%89%87.html">上傳影片</a>
+							</li>
+							<li>
+								<a href="%E4%B8%8A%E5%82%B3%E5%9C%B0%E5%9C%96.html">上傳地圖</a>
+							</li>
+							<li>
+								<a href="%E7%99%BB%E5%85%A5.html">登入</a>
+                            </li>
+						</ul>
+						<br class="clear" />
+					</div>
+				</div>
+				<div id="banner">
+					<img src="模板/images/pic1.jpg" width="1120" height="200" alt="" />
+				</div>
+				<div id="main">
+                    
+					<div id="sidebar">
+						<h3>
+							查詢方法
+						</h3>
+						<p>
+							利用不同項目查詢歷史資料。
+						</p>
+						<ul class="linkedList">
+							<li class="first">
+								<a id="side1">依地圖</a>
+							</li>
+							<li>
+								<a id="side2">依時間</a>
+							</li>
+							<li>
+								<a id="side3">依人潮</a>
+							</li>
+						</ul>
+					</div>
+					<div id="content">
+						<div id="box1">
+							<h2>
+								瀏覽歷史資料
+							</h2>
+
+							<p>
+								查詢過去的使用紀錄、統計資料和結果等等。
+							</p>
+						</div>
+						<div id="box2">
+                            <div id="box21">
+							<h3>
+								選擇地圖
+							</h3>
+							<p>
+								<canvas id="canvas"></canvas>
+							</p>
+                            </div>
+                            <div id="box22">
+							<h3>
+								選擇時間
+							</h3>
+							<p>
+								<canvas id="canvas"></canvas>
+							</p>
+                            </div>
+                            <div id="box23">
+							<h3>
+								選擇人潮流量
+							</h3>
+							<p>
+								<canvas id="canvas"></canvas>
+							</p>
+                            </div>
+			
+						</div>                       
+						<br class="clear" />
+					</div>
+					<br class="clear" />
+				</div>
+				<div id="footer">
+					<div id="footerSidebar">
+						<h3>
+							聯絡我們
+						</h3>
+						<ul class="linkedList">
+							<li class="first">
+								<a href="#">透過E-mail</a>
+							</li>
+							<li class="last">
+								<a href="#">其他方法</a>
+							</li>
+						</ul>
+					</div>
+					<div id="footerContent">
+						<h3>
+							遇到問題
+						</h3>
+						<p>
+				            透過左邊提供的聯絡方式告訴我們。
+						</p>
+					</div>
+					<br class="clear" />
+				</div>
+			</div>
+			<div id="copyright">
+				&copy; ncumis2019 | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>
+			</div>
+		</div>
+    </body>
+
+<script>
+  $("#side1").click(function(){
+    $("#box21").css("display", "block");
+    $("#box22").css("display", "none");
+    $("#box23").css("display", "none");
+  })
+  $("#side2").click(function(){
+    $("#box21").css("display", "none");
+    $("#box22").css("display", "block");
+    $("#box23").css("display", "none");
+  })
+  $("#side3").click(function(){
+    $("#box21").css("display", "none");
+    $("#box22").css("display", "none");
+    $("#box23").css("display", "block");
+  })
+</script>
+</html>
